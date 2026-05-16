@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Download, Target, TrendingUp } from 'lucide-react';
 import prottoyPhoto from '../assets/prottoy-photo.jpg';
 
 export default function Hero() {
+  const [profile, setProfile] = useState({ heroText: 'Loading...' });
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/profile')
+      .then(res => res.json())
+      .then(data => setProfile(data))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <section className="section container animate-fade-up" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
       <div className="grid-2 mobile-reverse" style={{ width: '100%', alignItems: 'center', marginTop: '6rem', marginBottom: '2rem' }}>
@@ -21,7 +30,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-body-large delay-200 animate-fade-up" style={{ maxWidth: '600px', color: 'var(--text-muted)' }}>
-            I work with businesses to improve their online presence, boost visibility, and turn audiences into active customers through data-driven strategies.
+            {profile.heroText}
           </p>
 
           <div className="hero-buttons delay-300 animate-fade-up" style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>

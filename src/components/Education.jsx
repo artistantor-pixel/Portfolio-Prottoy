@@ -2,23 +2,14 @@ import React from 'react';
 import { GraduationCap } from 'lucide-react';
 
 export default function Education() {
-  const educations = [
-    {
-      institution: "World University",
-      degree: "Bachelor's Degree In Mechanical Engineering",
-      year: "2022 - Present"
-    },
-    {
-      institution: "Mawts institute of technology",
-      degree: "Diploma in Engineering",
-      year: "2018 - 2022"
-    },
-    {
-      institution: "SR Dream It",
-      degree: "Digital Marketing Course",
-      year: "2023 (6 Month)"
-    }
-  ];
+  const [educations, setEducations] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:3000/api/education')
+      .then(res => res.json())
+      .then(data => setEducations(data))
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <section className="section container">

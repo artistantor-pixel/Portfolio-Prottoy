@@ -2,32 +2,14 @@ import React from 'react';
 import { Briefcase } from 'lucide-react';
 
 export default function Experience() {
-  const experiences = [
-    {
-      company: "Dhaka Stationery (Canvas)",
-      role: "Social Media Manager",
-      period: "Present",
-      desc: "Managing Facebook page, running ad campaigns, and creating marketing content to grow brand awareness and sales."
-    },
-    {
-      company: "SS Grupe",
-      role: "Social Media Manager",
-      period: "2025",
-      desc: "Facebook page setup, LinkedIn profile creation, and social media management."
-    },
-    {
-      company: "Venue Mart",
-      role: "Social Media Manager",
-      period: "2023–2025",
-      desc: "Managed Facebook ads, page growth, and created engaging social media designs."
-    },
-    {
-      company: "Hotel Sukhtara",
-      role: "Facebook Ads Campaign Manager",
-      period: "2025",
-      desc: "Created and managed Facebook ad campaigns and promotional designs."
-    }
-  ];
+  const [experiences, setExperiences] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:3000/api/experience')
+      .then(res => res.json())
+      .then(data => setExperiences(data))
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <section id="experience" className="section container">

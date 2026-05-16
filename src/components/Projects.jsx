@@ -2,52 +2,31 @@ import React from 'react';
 import { BarChart3, TrendingUp, Users, Target } from 'lucide-react';
 
 export default function Projects() {
-  const projects = [
-    {
-      id: "01",
-      title: "Beginner Artists Campaign",
-      desc: "Generated 520+ messaging conversations in 30 days with only a ৳600 daily budget. Achieved a low ৳13.65 cost per conversation through targeted strategy.",
-      stats: [
-        { label: "Conv", value: "520+" },
-        { label: "Cost/C", value: "৳13.65" },
-        { label: "Budget", value: "৳600/d" }
-      ],
-      icon: <Users size={28} />
-    },
-    {
-      id: "02",
-      title: "Whiteboard Product Campaign",
-      desc: "Generated 1,667+ Meta leads in 150 days with a ৳1,043 daily budget. Achieved strong lead generation at only ৳48.38 cost per lead.",
-      stats: [
-        { label: "Leads", value: "1,667+" },
-        { label: "Cost/L", value: "৳48.38" },
-        { label: "Budget", value: "৳1,043/d" }
-      ],
-      icon: <Target size={28} />
-    },
-    {
-      id: "03",
-      title: "145 PCS Unicorn Art Set",
-      desc: "Generated 5,573+ messaging conversations in 150 days with a ৳1,492 daily budget. Achieved an excellent ৳12.19 cost per conversation.",
-      stats: [
-        { label: "Conv", value: "5,573+" },
-        { label: "Cost/C", value: "৳12.19" },
-        { label: "Budget", value: "৳1,492/d" }
-      ],
-      icon: <TrendingUp size={28} />
-    },
-    {
-      id: "04",
-      title: "Canvas Combo Campaign",
-      desc: "Generated 2,272+ messaging conversations in 50 days with a ৳2,010 daily budget. Achieved a strong ৳44.22 cost per conversation.",
-      stats: [
-        { label: "Conv", value: "2,272+" },
-        { label: "Cost/C", value: "৳44.22" },
-        { label: "Budget", value: "৳2,010/d" }
-      ],
-      icon: <BarChart3 size={28} />
+  const [projects, setProjects] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:3000/api/projects')
+      .then(res => res.json())
+      .then(data => {
+        // Parse the stats JSON string
+        const parsedData = data.map(p => ({
+          ...p,
+          stats: JSON.parse(p.stats)
+        }));
+        setProjects(parsedData);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+  const getIcon = (iconName) => {
+    switch (iconName) {
+      case 'Users': return <Users size={28} />;
+      case 'Target': return <Target size={28} />;
+      case 'TrendingUp': return <TrendingUp size={28} />;
+      case 'BarChart3': return <BarChart3 size={28} />;
+      default: return <BarChart3 size={28} />;
     }
-  ];
+  };
 
   return (
     <section id="projects" className="section container">
@@ -73,9 +52,9 @@ export default function Projects() {
                 borderRadius: '16px',
                 border: '1px solid rgba(139, 92, 246, 0.2)'
               }}>
-                {project.icon}
+                {getIcon(project.icon)}
               </div>
-              <span style={{ fontSize: '2rem', fontWeight: 800, color: 'rgba(255,255,255,0.1)' }}>{project.id}</span>
+              <span style={{ fontSize: '2rem', fontWeight: 800, color: 'rgba(255,255,255,0.1)' }}>0{idx + 1}</span>
             </div>
 
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, lineHeight: 1.3 }}>{project.title}</h3>

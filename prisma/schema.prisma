@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  desc        String
+  stats       String   // JSON string of stats array
+  icon        String   // Icon name (Users, Target, etc)
+  createdAt   DateTime @default(now())
+}
+
+model Experience {
+  id          Int      @id @default(autoincrement())
+  company     String
+  role        String
+  period      String
+  desc        String
+  createdAt   DateTime @default(now())
+}
+
+model Education {
+  id          Int      @id @default(autoincrement())
+  institution String
+  degree      String
+  year        String
+  createdAt   DateTime @default(now())
+}
+
+model Profile {
+  id          Int    @id @default(autoincrement())
+  heroText    String
+  aboutText   String
+  email       String
+}

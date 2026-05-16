@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function About() {
+  const [profile, setProfile] = useState({ aboutText: 'Loading...' });
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/profile')
+      .then(res => res.json())
+      .then(data => setProfile(data))
+      .catch(err => console.error(err));
+  }, []);
   return (
     <section id="about" className="section container">
       <div className="grid-2" style={{ gap: '3rem' }}>
@@ -14,7 +22,7 @@ export default function About() {
             D’ROZARIO!
           </h2>
           <p className="text-body-large" style={{ color: 'var(--text-muted)' }}>
-            Back in 2022, I took my first steps into digital marketing, exploring content, ads, and strategies that helped me shape my career. I worked with several clients and achieved good results.
+            {profile.aboutText}
           </p>
         </div>
 
