@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Download, Target, TrendingUp } from 'lucide-react';
-import prottoyPhoto from '../assets/prottoy-photo.jpg';
+import prottoyPhoto from '../assets/prottoy-pro-photo.png';
 import API_URL from '../config';
 
 export default function Hero() {
