@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download, Target, TrendingUp } from 'lucide-react';
+import prottoyPhoto from '../assets/prottoy-photo.jpg';
 
 export default function Hero() {
   return (
@@ -65,22 +66,16 @@ export default function Hero() {
             padding: '1rem',
             position: 'relative'
           }}>
-            <div style={{
-              width: '100%',
-              height: '100%',
-              borderRadius: '16px',
-              background: 'linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--text-muted)',
-              border: '1px dashed rgba(255,255,255,0.2)'
-            }}>
-              <div style={{ textAlign: 'center' }}>
-                <span style={{ display: 'block', fontSize: '2rem', marginBottom: '0.5rem' }}>📸</span>
-                <span>Drop Prottoy's<br/>Photo Here</span>
-              </div>
-            </div>
+            <img 
+              src={prottoyPhoto} 
+              alt="Emmanuel Prottoy D'Rozario" 
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '16px'
+              }}
+            />
           </div>
         </div>
         
