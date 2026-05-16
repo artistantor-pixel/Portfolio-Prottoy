@@ -1,11 +1,12 @@
 import React from 'react';
 import { GraduationCap } from 'lucide-react';
+import API_URL from '../config';
 
 export default function Education() {
   const [educations, setEducations] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('http://localhost:3000/api/education')
+    fetch(`${API_URL}/api/education`)
       .then(res => res.json())
       .then(data => setEducations(data))
       .catch(err => console.error(err));

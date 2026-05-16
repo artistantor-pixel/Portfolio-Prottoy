@@ -1,11 +1,12 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
+import API_URL from '../config';
 
 export default function Experience() {
   const [experiences, setExperiences] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('http://localhost:3000/api/experience')
+    fetch(`${API_URL}/api/experience`)
       .then(res => res.json())
       .then(data => setExperiences(data))
       .catch(err => console.error(err));

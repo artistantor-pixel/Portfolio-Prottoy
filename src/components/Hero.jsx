@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Download, Target, TrendingUp } from 'lucide-react';
 import prottoyPhoto from '../assets/prottoy-photo.jpg';
+import API_URL from '../config';
 
 export default function Hero() {
   const [profile, setProfile] = useState({ heroText: 'Loading...' });
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/profile')
+    fetch(`${API_URL}/api/profile`)
       .then(res => res.json())
       .then(data => setProfile(data))
       .catch(err => console.error(err));

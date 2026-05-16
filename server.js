@@ -6,8 +6,8 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 const app = express();
-const PORT = 3000;
-const JWT_SECRET = 'your-super-secret-jwt-key'; // In production, this should be in .env
+const PORT = process.env.PORT || 3000;
+const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key';
 
 app.use(cors());
 app.use(express.json());

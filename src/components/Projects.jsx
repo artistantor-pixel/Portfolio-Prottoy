@@ -1,11 +1,12 @@
 import React from 'react';
 import { BarChart3, TrendingUp, Users, Target } from 'lucide-react';
+import API_URL from '../config';
 
 export default function Projects() {
   const [projects, setProjects] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('http://localhost:3000/api/projects')
+    fetch(`${API_URL}/api/projects`)
       .then(res => res.json())
       .then(data => {
         // Parse the stats JSON string

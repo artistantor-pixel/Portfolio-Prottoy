@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config';
 
 export default function About() {
   const [profile, setProfile] = useState({ aboutText: 'Loading...' });
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/profile')
+    fetch(`${API_URL}/api/profile`)
       .then(res => res.json())
       .then(data => setProfile(data))
       .catch(err => console.error(err));

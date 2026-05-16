@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LogOut, LayoutDashboard, Briefcase, GraduationCap, FolderDot, Save, Plus, Trash2 } from 'lucide-react';
+import API_URL from '../config';
 
 export default function AdminDashboard() {
   const [validating, setValidating] = useState(true);
@@ -19,7 +20,7 @@ export default function AdminDashboard() {
       return;
     }
 
-    fetch('http://localhost:3000/api/verify', {
+    fetch(`${API_URL}/api/verify`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => {
@@ -34,12 +35,12 @@ export default function AdminDashboard() {
   }, [navigate]);
 
   const fetchData = async () => {
-    fetch('http://localhost:3000/api/profile').then(res => res.json()).then(setProfile);
-    fetch('http://localhost:3000/api/projects').then(res => res.json()).then(data => {
+    fetch(`${API_URL}/api/profile`).then(res => res.json()).then(setProfile);
+    fetch(`${API_URL}/api/projects`).then(res => res.json()).then(data => {
       setProjects(data.map(p => ({ ...p, stats: JSON.parse(p.stats || '[]') })));
     });
-    fetch('http://localhost:3000/api/experience').then(res => res.json()).then(setExperiences);
-    fetch('http://localhost:3000/api/education').then(res => res.json()).then(setEducations);
+    fetch(`${API_URL}/api/experience`).then(res => res.json()).then(setExperiences);
+    fetch(`${API_URL}/api/education`).then(res => res.json()).then(setEducations);
   };
 
   const getHeaders = () => ({
@@ -48,7 +49,7 @@ export default function AdminDashboard() {
   });
 
   const saveProfile = async () => {
-    await fetch('http://localhost:3000/api/profile', {
+    await fetch(`${API_URL}/api/profile`, {
       method: 'PUT',
       headers: getHeaders(),
       body: JSON.stringify(profile)
@@ -58,7 +59,7 @@ export default function AdminDashboard() {
 
   const addExperience = async () => {
     const newExp = { company: 'New Company', role: 'Role', period: '2025', desc: 'Description' };
-    const res = await fetch('http://localhost:3000/api/experience', {
+    const res = await fetch(`${API_URL}/api/experience`, {
       method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify(newExp)
@@ -68,7 +69,7 @@ export default function AdminDashboard() {
   };
 
   const deleteExperience = async (id) => {
-    await fetch(`http://localhost:3000/api/experience/${id}`, { method: 'DELETE', headers: getHeaders() });
+    await fetch(`${API_URL}/api/experience/${id}`, { method: 'DELETE', headers: getHeaders() });
     setExperiences(experiences.filter(e => e.id !== id));
   };
 
@@ -166,7 +167,7 @@ export default function AdminDashboard() {
                       style={{ width: '100%', padding: '0.5rem', borderRadius: '4px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: 'white' }}
                     />
                     <button onClick={async () => {
-                      await fetch(`http://localhost:3000/api/experience/${exp.id}`, {
+                      await fetch(`${API_URL}/api/experience/${exp.id}`, {
                         method: 'PUT', headers: getHeaders(), body: JSON.stringify(exp)
                       });
                       alert('Saved');
