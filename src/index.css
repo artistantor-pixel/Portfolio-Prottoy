@@ -229,28 +229,33 @@ button {
   border-color: var(--glass-border-highlight);
 }
 
+.glass-card:active, .btn-primary:active, .btn-glass:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .hide-on-mobile {
     display: none !important;
   }
   .nav-glass {
-    gap: 1rem !important;
-    padding: 0.75rem 1.25rem !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
     width: 100% !important;
     justify-content: space-between !important;
   }
   .nav-brand {
     margin-right: 0 !important;
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
   }
   .nav-btn {
     margin-left: 0 !important;
-    padding: 0.5rem 1rem !important;
-    font-size: 0.85rem !important;
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
   }
   .section {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
   .container {
     padding: 0 1rem;
@@ -259,6 +264,22 @@ button {
     padding: 1.5rem !important;
   }
   .text-huge {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2rem, 10vw, 2.5rem);
+    line-height: 1.1 !important;
+  }
+  .text-body-large {
+    font-size: 0.95rem;
+  }
+  .grid-2 {
+    gap: 2rem;
+  }
+  
+  /* Helper classes for mobile */
+  .mobile-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .mobile-badges-fix {
+    transform: scale(0.85);
   }
 }

@@ -56,7 +56,7 @@ export default function Projects() {
         <p className="text-body-large" style={{ color: 'var(--text-muted)', marginTop: '1rem' }}>Data-driven campaigns that turned audiences into active customers.</p>
       </div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
         {projects.map((project, idx) => (
           <div key={project.id} className={`glass-card animate-fade-up delay-${(idx+1)*100}`} style={{
             padding: '2.5rem',
