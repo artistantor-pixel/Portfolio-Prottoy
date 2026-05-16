@@ -7,8 +7,8 @@
   --text-muted: #94a3b8;
   
   /* Glass and Gradients */
-  --glass-bg: rgba(255, 255, 255, 0.08); /* Decreased transparency */
-  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(15, 15, 25, 0.65); /* More solid to stand out */
+  --glass-bg-hover: rgba(25, 25, 35, 0.8);
   --glass-border: rgba(255, 255, 255, 0.15);
   --glass-border-highlight: rgba(255, 255, 255, 0.3);
   
@@ -293,13 +293,13 @@ button {
     justify-content: center;
   }
   .badge-top-left {
-    top: -15px !important;
-    left: -15px !important;
-    transform: scale(0.8);
+    top: 10px !important;
+    left: 10px !important;
+    transform: scale(0.85);
   }
   .badge-bottom-right {
-    bottom: -15px !important;
-    right: -15px !important;
-    transform: scale(0.8);
+    bottom: 10px !important;
+    right: 10px !important;
+    transform: scale(0.85);
   }
 }

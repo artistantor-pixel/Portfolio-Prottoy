@@ -19,7 +19,10 @@ export default function Header() {
       width: '100%',
       zIndex: 100,
       transition: 'all 0.3s ease',
-      padding: scrolled ? '1rem 0' : '2rem 0'
+      padding: scrolled ? '1rem 0' : '2rem 0',
+      background: scrolled ? 'rgba(5, 5, 10, 0.8)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.05)' : 'none'
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
         <nav className="glass-panel nav-glass" style={{

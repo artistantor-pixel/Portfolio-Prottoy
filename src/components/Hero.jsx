@@ -5,7 +5,7 @@ import prottoyPhoto from '../assets/prottoy-photo.jpg';
 export default function Hero() {
   return (
     <section className="section container animate-fade-up" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-      <div className="grid-2 mobile-reverse" style={{ width: '100%', alignItems: 'center', marginTop: '4rem' }}>
+      <div className="grid-2 mobile-reverse" style={{ width: '100%', alignItems: 'center', marginTop: '6rem', marginBottom: '2rem' }}>
         
         {/* Left Content */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
