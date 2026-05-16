@@ -1,0 +1,90 @@
+import React from 'react';
+import { ArrowRight, Download, Target, TrendingUp } from 'lucide-react';
+
+export default function Hero() {
+  return (
+    <section className="section container animate-fade-up" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+      <div className="grid-2" style={{ width: '100%', alignItems: 'center', marginTop: '4rem' }}>
+        
+        {/* Left Content */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div className="delay-100 animate-fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.2)', padding: '0.5rem 1rem', borderRadius: '9999px', width: 'fit-content' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--accent-2)', boxShadow: '0 0 10px var(--accent-2)' }}></span>
+            <span style={{ color: 'var(--accent-2)', fontSize: '0.875rem', fontWeight: 600 }}>Available for new projects</span>
+          </div>
+
+          <h1 className="text-huge" style={{ lineHeight: '1' }}>
+            <span style={{ display: 'block' }}>DIGITAL</span>
+            <span className="text-gradient">MARKETING</span>
+            <span style={{ display: 'block' }}>PORTFOLIO</span>
+          </h1>
+          
+          <p className="text-body-large delay-200 animate-fade-up" style={{ maxWidth: '600px', color: 'var(--text-muted)' }}>
+            I work with businesses to improve their online presence, boost visibility, and turn audiences into active customers through data-driven strategies.
+          </p>
+
+          <div className="delay-300 animate-fade-up" style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+            <a href="#contact" className="btn-primary">
+              Let's Talk <ArrowRight size={18} />
+            </a>
+            <button className="btn-glass">
+              Download CV <Download size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Right Content - Glass Image Placeholder */}
+        <div className="delay-400 animate-fade-up" style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          
+          {/* Floating Badges */}
+          <div className="glass-card" style={{ position: 'absolute', top: '10%', left: '-10%', padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem', zIndex: 10, animation: 'float 6s infinite ease-in-out reverse' }}>
+            <div style={{ background: 'rgba(236, 72, 153, 0.2)', padding: '0.5rem', borderRadius: '12px', color: 'var(--accent-3)' }}>
+              <Target size={24} />
+            </div>
+            <div>
+              <p style={{ fontWeight: 700, fontSize: '0.9rem' }}>High ROAS</p>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Targeted Ads</p>
+            </div>
+          </div>
+
+          <div className="glass-card" style={{ position: 'absolute', bottom: '15%', right: '-5%', padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem', zIndex: 10, animation: 'float 8s infinite ease-in-out' }}>
+            <div style={{ background: 'rgba(59, 130, 246, 0.2)', padding: '0.5rem', borderRadius: '12px', color: 'var(--accent-2)' }}>
+              <TrendingUp size={24} />
+            </div>
+            <div>
+              <p style={{ fontWeight: 700, fontSize: '0.9rem' }}>10k+ Leads</p>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Generated</p>
+            </div>
+          </div>
+
+          {/* Main Photo Container */}
+          <div className="glass-card" style={{
+            width: '100%',
+            maxWidth: '450px',
+            aspectRatio: '4/5',
+            padding: '1rem',
+            position: 'relative'
+          }}>
+            <div style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '16px',
+              background: 'linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'var(--text-muted)',
+              border: '1px dashed rgba(255,255,255,0.2)'
+            }}>
+              <div style={{ textAlign: 'center' }}>
+                <span style={{ display: 'block', fontSize: '2rem', marginBottom: '0.5rem' }}>📸</span>
+                <span>Drop Prottoy's<br/>Photo Here</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  );
+}
