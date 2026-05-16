@@ -53,21 +53,67 @@ app.get('/api/profile', async (req, res) => {
 });
 
 app.put('/api/profile', authenticateToken, async (req, res) => {
-  const { heroText, aboutText, email } = req.body;
   const existing = await prisma.profile.findFirst();
-  
   if (existing) {
     const updated = await prisma.profile.update({
       where: { id: existing.id },
-      data: { heroText, aboutText, email }
+      data: req.body
     });
     res.json(updated);
   } else {
-    const created = await prisma.profile.create({
-      data: { heroText, aboutText, email }
-    });
+    const created = await prisma.profile.create({ data: req.body });
     res.json(created);
   }
+});
+
+// --- Skills Routes ---
+app.get('/api/skills', async (req, res) => {
+  const skills = await prisma.skill.findMany();
+  res.json(skills);
+});
+
+app.post('/api/skills', authenticateToken, async (req, res) => {
+  const skill = await prisma.skill.create({ data: req.body });
+  res.json(skill);
+});
+
+app.delete('/api/skills/:id', authenticateToken, async (req, res) => {
+  await prisma.skill.delete({ where: { id: Number(req.params.id) } });
+  res.json({ success: true });
+});
+
+// --- Services Routes ---
+app.get('/api/services', async (req, res) => {
+  const services = await prisma.service.findMany();
+  res.json(services);
+});
+
+app.post('/api/services', authenticateToken, async (req, res) => {
+  const service = await prisma.service.create({ data: req.body });
+  res.json(service);
+});
+
+app.delete('/api/services/:id', authenticateToken, async (req, res) => {
+  await prisma.service.delete({ where: { id: Number(req.params.id) } });
+  res.json({ success: true });
+});
+
+// --- Settings Routes ---
+app.get('/api/settings', async (req, res) => {
+  let settings = await prisma.siteSettings.findFirst();
+  if (!settings) {
+    settings = await prisma.siteSettings.create({ data: {} });
+  }
+  res.json(settings);
+});
+
+app.put('/api/settings', authenticateToken, async (req, res) => {
+  const existing = await prisma.siteSettings.findFirst();
+  const updated = await prisma.siteSettings.update({
+    where: { id: existing.id },
+    data: req.body
+  });
+  res.json(updated);
 });
 
 // --- Projects Routes ---

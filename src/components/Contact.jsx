@@ -1,7 +1,15 @@
-import React from 'react';
-import { Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Send, Mail, Linkedin, Github } from 'lucide-react';
+import API_URL from '../config';
 
 export default function Contact() {
+  const [profile, setProfile] = useState({});
+
+  useEffect(() => {
+    fetch(`${API_URL}/api/profile`)
+      .then(res => res.json())
+      .then(setProfile);
+  }, []);
   return (
     <section id="contact" className="section container">
       <div className="glass-card animate-fade-up" style={{ padding: '4rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
@@ -58,6 +66,12 @@ export default function Contact() {
             Send Message <Send size={18} />
           </button>
         </form>
+
+        <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+          {profile.email && <a href={`mailto:${profile.email}`} className="btn-glass" style={{ gap: '0.75rem' }}><Mail size={18}/> {profile.email}</a>}
+          {profile.linkedin && <a href={profile.linkedin} target="_blank" className="btn-glass" style={{ gap: '0.75rem' }}><Linkedin size={18}/> LinkedIn</a>}
+          {profile.github && <a href={profile.github} target="_blank" className="btn-glass" style={{ gap: '0.75rem' }}><Github size={18}/> GitHub</a>}
+        </div>
       </div>
     </section>
   );

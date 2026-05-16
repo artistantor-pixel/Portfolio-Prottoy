@@ -77,7 +77,7 @@ export default function Hero() {
             position: 'relative'
           }}>
             <img 
-              src={prottoyPhoto} 
+              src={profile.photoUrl || prottoyPhoto} 
               alt="Emmanuel Prottoy D'Rozario" 
               style={{
                 width: '100%',

@@ -41,8 +41,36 @@ model Education {
 }
 
 model Profile {
-  id          Int    @id @default(autoincrement())
-  heroText    String
-  aboutText   String
-  email       String
+  id        Int     @id @default(autoincrement())
+  heroText  String
+  aboutText String
+  email     String
+  phone     String?
+  address   String?
+  linkedin  String?
+  github    String?
+  facebook  String?
+  photoUrl  String?
+}
+
+model Skill {
+  id       Int     @id @default(autoincrement())
+  name     String
+  iconName String? // Lucide icon name
+  category String? // e.g., 'Marketing', 'Tools'
+}
+
+model Service {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  iconName    String?
+}
+
+model SiteSettings {
+  id              Int     @id @default(1)
+  siteTitle       String  @default("Prottoy | Portfolio")
+  metaDescription String?
+  primaryColor    String  @default("#3b82f6")
+  secondaryColor  String  @default("#ec4899")
 }
