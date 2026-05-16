@@ -24,7 +24,7 @@ export default function Hero() {
             I work with businesses to improve their online presence, boost visibility, and turn audiences into active customers through data-driven strategies.
           </p>
 
-          <div className="delay-300 animate-fade-up" style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+          <div className="hero-buttons delay-300 animate-fade-up" style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
             <a href="#contact" className="btn-primary">
               Let's Talk <ArrowRight size={18} />
             </a>
@@ -38,7 +38,7 @@ export default function Hero() {
         <div className="delay-400 animate-fade-up" style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
           
           {/* Floating Badges */}
-          <div className="glass-card mobile-badges-fix" style={{ position: 'absolute', top: '10%', left: '-5%', padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem', zIndex: 10, animation: 'float 6s infinite ease-in-out reverse' }}>
+          <div className="glass-card badge-top-left" style={{ position: 'absolute', top: '10%', left: '-5%', padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem', zIndex: 10, animation: 'float 6s infinite ease-in-out reverse' }}>
             <div style={{ background: 'rgba(236, 72, 153, 0.2)', padding: '0.5rem', borderRadius: '12px', color: 'var(--accent-3)' }}>
               <Target size={24} />
             </div>
@@ -48,7 +48,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="glass-card mobile-badges-fix" style={{ position: 'absolute', bottom: '15%', right: '-2%', padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem', zIndex: 10, animation: 'float 8s infinite ease-in-out' }}>
+          <div className="glass-card badge-bottom-right" style={{ position: 'absolute', bottom: '15%', right: '-2%', padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem', zIndex: 10, animation: 'float 8s infinite ease-in-out' }}>
             <div style={{ background: 'rgba(59, 130, 246, 0.2)', padding: '0.5rem', borderRadius: '12px', color: 'var(--accent-2)' }}>
               <TrendingUp size={24} />
             </div>

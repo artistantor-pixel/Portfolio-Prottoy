@@ -7,10 +7,10 @@
   --text-muted: #94a3b8;
   
   /* Glass and Gradients */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-bg-hover: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-highlight: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.08); /* Decreased transparency */
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border-highlight: rgba(255, 255, 255, 0.3);
   
   --accent-1: #8b5cf6; /* Purple */
   --accent-2: #3b82f6; /* Blue */
@@ -281,5 +281,25 @@ button {
   }
   .mobile-badges-fix {
     transform: scale(0.85);
+  }
+  
+  /* Hero specific fixes */
+  .hero-buttons {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .hero-buttons > * {
+    width: 100%;
+    justify-content: center;
+  }
+  .badge-top-left {
+    top: -15px !important;
+    left: -15px !important;
+    transform: scale(0.8);
+  }
+  .badge-bottom-right {
+    bottom: -15px !important;
+    right: -15px !important;
+    transform: scale(0.8);
   }
 }
